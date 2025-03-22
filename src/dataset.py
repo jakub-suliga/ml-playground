@@ -11,16 +11,17 @@ OUTPUT_DIR = "data"
 splits = ["train", "val", "test"]
 classes = ["bird", "drone"]
 
-for split in splits:
-    for cls in classes:
-        os.makedirs(os.path.join(OUTPUT_DIR, split, cls), exist_ok=True)
-
 
 def create_dataset(
     src_dir: str, class_name: str, train_size: int, val_size: int
 ) -> None:
+
     if train_size + val_size >= 1:
         raise ValueError("train_size + val_size should be less than 1")
+
+    for split in splits:
+        for cls in classes:
+            os.makedirs(os.path.join(OUTPUT_DIR, split, cls), exist_ok=True)
 
     files = [
         f for f in os.listdir(src_dir) if f.lower().endswith((".jpg", ".png", ".jpeg"))
