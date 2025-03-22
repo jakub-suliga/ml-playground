@@ -3,10 +3,10 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 
-class MyBirdDroneCNN(nn.Module):
+class BirdDroneCNN(nn.Module):
     # Input shape: (224, 224, 3)
     def __init__(self):
-        super(MyBirdDroneCNN, self).__init__()
+        super(BirdDroneCNN, self).__init__()
         self.conv1 = nn.Conv2d(in_channels=3, out_channels=16, kernel_size=3, padding=1)
         self.conv2 = nn.Conv2d(
             in_channels=16, out_channels=32, kernel_size=3, padding=1
