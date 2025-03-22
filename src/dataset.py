@@ -3,11 +3,9 @@ import random
 import shutil
 import kagglehub
 
-path = kagglehub.dataset_download("muhammadsaoodsarwar/drone-vs-bird") + "\dataset"
+path = kagglehub.dataset_download("muhammadsaoodsarwar/drone-vs-bird") + "/dataset"
 
-print("Path to dataset files:", path)
 OUTPUT_DIR = "data"
-
 splits = ["train", "val", "test"]
 classes = ["bird", "drone"]
 
@@ -50,5 +48,5 @@ def create_dataset(
         )
 
 
-create_dataset(path + "\bird", "bird", train_size=0.7, val_size=0.15)
-create_dataset(path + "\drone", "drone", train_size=0.7, val_size=0.15)
+create_dataset(path + "/bird", "bird", train_size=0.7, val_size=0.15)
+create_dataset(path + "/drone", "drone", train_size=0.7, val_size=0.15)
