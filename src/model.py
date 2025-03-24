@@ -35,3 +35,13 @@ class BirdDroneCNN(nn.Module):
         x = self.fc2(x)
         x = torch.sigmoid(x)
         return x
+
+
+class PretrainedBirdDroneCNN(nn.Module):
+    def __init__(self):
+        super(PretrainedBirdDroneCNN, self).__init__()
+        self.resnet = torch.hub.load("pytorch/vision:v0.6.0", "resnet18", pretrained=True)
+        self.resnet.fc = nn.Linear(512, 1)
+
+    def forward(self, x):
+        return torch.sigmoid(self.resnet(x))
