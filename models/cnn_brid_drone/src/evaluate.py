@@ -58,7 +58,7 @@ def main():
     )
     test_loader = DataLoader(test_dataset, batch_size=32, shuffle=False)
 
-    model = MyBirdDroneCNN()
+    model = BirdDroneCNN()
     model_path = "my_cnn_bird_drone.pth"
     model.load_state_dict(torch.load(model_path, map_location=device))
     model.to(device)
